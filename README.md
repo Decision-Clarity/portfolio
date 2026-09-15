@@ -1,5 +1,7 @@
 # Decision Clarity — Portfolio
 
+**Live hub:** https://portfolio-freelance-7d8a.vercel.app/
+
 A live, working portfolio of website templates and AI automation demos.
 Every link below goes to a real, deployed project — not a screenshot.
 
