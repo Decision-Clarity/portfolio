@@ -1,0 +1,11 @@
+{
+  "name": "lead-intake-demo",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@upstash/ratelimit": "^2.1.0",
+    "@upstash/redis": "^1.38.4",
+    "zod": "^4.6.5"
+  }
+}

@@ -1,0 +1,314 @@
+/* ---------------------------------------------------------
+   AI lead intake demo — shares the hub's visual language
+   (signal teal / warm amber) since this is Decision Clarity's
+   own product, not a client template.
+--------------------------------------------------------- */
+
+:root {
+  --bg: #f2f4f3;
+  --surface: #ffffff;
+  --ink: #16211d;
+  --muted: #626d68;
+  --muted-2: #8a948f;
+  --line: #d8ded9;
+  --signal: #2b6e5b;
+  --signal-strong: #1f5245;
+  --signal-bg: #e4efeb;
+  --warm: #d98c3f;
+  --warm-strong: #b96f27;
+  --danger: #a3392b;
+  --danger-bg: #f7e8e5;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+
+  --max-width: 40rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--signal-strong);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: var(--gutter);
+  top: 1rem;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.back-link {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.back-link:hover {
+  color: var(--signal-strong);
+}
+
+/* ---------- Page ---------- */
+
+.page {
+  padding-block: clamp(2rem, 6vw, 3.5rem);
+}
+
+.page-head h1 {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+}
+
+.page-head p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+/* ---------- Form ---------- */
+
+.intake-form {
+  margin-top: 2rem;
+}
+
+.intake-form label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+}
+
+.intake-form textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.intake-form textarea:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 1px;
+}
+
+.form-row {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.char-count {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  color: var(--muted-2);
+}
+
+.session-note {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1px solid var(--ink);
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.btn-primary {
+  background: var(--warm);
+  border-color: var(--warm-strong);
+  color: #23150a;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--warm-strong);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* ---------- Result panel ---------- */
+
+.result-panel {
+  margin-top: 2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.result-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.result-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.result-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  background: var(--signal-bg);
+  color: var(--signal-strong);
+}
+
+.badge-spam {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.badge-urgency-high {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.result-summary {
+  margin-top: 1.25rem;
+}
+
+.result-summary p {
+  margin-top: 0.35rem;
+}
+
+.contact-list {
+  margin: 0.35rem 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+}
+
+.contact-list dt {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.contact-list dd {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.result-field + .result-field {
+  margin-top: 1.25rem;
+}
+
+/* ---------- Error panel ---------- */
+
+.error-panel {
+  margin-top: 2rem;
+  border: 1px solid var(--danger);
+  background: var(--danger-bg);
+  color: var(--danger);
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}

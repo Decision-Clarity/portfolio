@@ -21,25 +21,23 @@ directory and deploys as its own independent Vercel project.
 
 ## Demos
 
-### Website templates
-
-| Demo | Description | Live | Code |
-|---|---|---|---|
-| Local service business | Trust-first site for home and field service companies | _coming soon_ | _coming soon_ |
-| Restaurant & café | Menu, hours, location, and a reservation/order CTA | _coming soon_ | _coming soon_ |
-| Professional services | Credibility-forward site for firms selling expertise | _coming soon_ | _coming soon_ |
-| Creator & portfolio | Bold, visual personal site with a projects/gallery section | _coming soon_ | _coming soon_ |
-| Product / SaaS landing | Conversion-focused landing page with pricing and signup | _coming soon_ | _coming soon_ |
+AI automation leads the hub — it's the more defensible, differentiated
+work. Website templates follow as a secondary offering.
 
 ### AI automation demos
 
 | Demo | Description | Live | Code |
 |---|---|---|---|
-| AI lead intake | Classifies and summarizes a pasted inquiry via a server-side LLM call | _coming soon_ | _coming soon_ |
-| Document / receipt parser | Extracts structured fields from pasted or uploaded text | _coming soon_ | _coming soon_ |
+| AI lead intake | Classifies and summarizes a pasted inquiry via a server-side LLM call | [live](https://lead-intake-demo.vercel.app/) | [code](lead-intake-demo/) |
+| Document & receipt parser | Extracts structured fields from pasted or uploaded text | _coming soon_ | _coming soon_ |
 | Knowledge-base Q&A | Answers questions grounded in a small fixed set of documents | _coming soon_ | _coming soon_ |
 
-_(Exactly which 2–3 automation demos ship is decided when that phase of work starts — this table will be trimmed to match.)_
+### Website templates
+
+| Demo | Description | Live | Code |
+|---|---|---|---|
+| Local service business | Trust-first site for home and field service companies | [live](https://local-service-template-delta.vercel.app/) | [code](local-service-template/) |
+| Professional services | Credibility-forward site for firms selling expertise | [live](https://professional-services-template-six.vercel.app/) | [code](professional-services-template/) |
 
 ## Tech stack
 
@@ -51,11 +49,14 @@ _(Exactly which 2–3 automation demos ship is decided when that phase of work s
 
 ```
 portfolio/
-├── index.html              # Portfolio hub (this page)
-├── styles.css               # Hub styles
+├── index.html                          # Portfolio hub (this page)
+├── styles.css                          # Hub styles
 ├── README.md
 ├── .gitignore
-└── (one top-level directory per demo, added as each is built)
+├── lead-intake-demo/                   # AI automation demo (live)
+├── local-service-template/             # Website template (live)
+├── professional-services-template/     # Website template (live)
+└── (more top-level directories as future demos ship)
 ```
 
 ## Deploying a new demo
@@ -78,4 +79,4 @@ directly in that demo's Vercel project settings.
 
 ## Contact
 
-[hello@decisionclarity.dev](mailto:hello@decisionclarity.dev)
+[joe@decisionclarity.io](mailto:joe@decisionclarity.io)

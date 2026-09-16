@@ -1,0 +1,496 @@
+/* ---------------------------------------------------------
+   Ridgeline Plumbing & Drain — local service template
+   Design concept: the work order. Direct, high-contrast,
+   trust-first. Safety orange marks the one thing that matters
+   — calling. No shadows, no rounded cards, no decoration
+   that doesn't carry information.
+--------------------------------------------------------- */
+
+:root {
+  --ink: #1c2b2f;
+  --ink-soft: #33453f;
+  --bg: #eef0ea;
+  --surface: #ffffff;
+  --muted: #5b6b63;
+  --muted-2: #8a9990;
+  --line: #d6d2c4;
+  --accent: #e8590c;
+  --accent-strong: #b8430a;
+  --on-accent: #241005;
+
+  --font-display: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --max-width: 68rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  font-family: var(--font-display);
+}
+
+.skip-link:focus {
+  left: var(--gutter);
+  top: 1rem;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Call bar ---------- */
+
+.call-bar {
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+}
+
+.call-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.call-bar-label {
+  color: var(--muted-2);
+}
+
+.call-bar-number {
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.call-bar-number:hover {
+  color: var(--accent);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-block: 1rem;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.wordmark span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.site-nav a {
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.btn-call {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.btn-call:hover {
+  background: var(--ink-soft);
+  color: var(--bg);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.btn-ghost {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--surface);
+}
+
+.btn-large {
+  font-size: 1.25rem;
+  padding: 0.9rem 2rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 2.6vw + 1.4rem, 3.25rem);
+  max-width: 16ch;
+}
+
+.hero-lede {
+  margin-top: 1.25rem;
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+.hero-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  background: var(--surface);
+  border: 2px solid var(--ink);
+}
+
+.hero-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-panel li {
+  padding: 1.1rem 1.35rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-panel li:last-child {
+  border-bottom: none;
+}
+
+.hero-panel strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+}
+
+.hero-panel span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Section shared ---------- */
+
+.services,
+.area,
+.reviews {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+.section-head h2 {
+  font-size: 1.875rem;
+}
+
+.section-head p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+/* ---------- Services ---------- */
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.service-list li {
+  padding: 1.5rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.service-list h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+}
+
+.service-list p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* ---------- Area ---------- */
+
+.area-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.area h2 {
+  font-size: 1.875rem;
+}
+
+.area p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.area-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.area-list li {
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.area-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Reviews ---------- */
+
+.review-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.review-list blockquote {
+  margin: 0;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.1rem;
+}
+
+.review-list p {
+  font-size: 1.0625rem;
+}
+
+.review-list footer {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+}
+
+/* ---------- CTA band ---------- */
+
+.cta-band {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.cta-band-inner {
+  padding-block: clamp(2.5rem, 6vw, 3.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-band h2 {
+  color: var(--bg);
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+  max-width: 18ch;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--surface);
+  border-top: 3px solid var(--ink);
+  padding-block: 2rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.site-footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+}
+
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--ink);
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+}
+
+.footer-note {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  color: var(--muted-2);
+}
+
+.footer-note a {
+  color: var(--muted-2);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 56rem) {
+  .hero-grid,
+  .area-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 30rem) {
+  .site-header-inner .btn-call {
+    display: none;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+}

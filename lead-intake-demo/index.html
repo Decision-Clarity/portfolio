@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI lead intake — Decision Clarity</title>
+  <meta name="description" content="Paste a business inquiry and see it classified, summarized, and structured by a live server-side AI call." />
+  <meta name="theme-color" content="#f2f4f3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f4f3'/%3E%3Cpath d='M4 20 C10 8, 18 28, 28 12' fill='none' stroke='%232b6e5b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="https://portfolio.decisionclarity.io">Decision Clarity</a>
+      <a class="back-link" href="https://portfolio.decisionclarity.io/#automations">&larr; All demos</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap page">
+      <div class="page-head">
+        <h1>AI lead intake</h1>
+        <p>
+          Paste a customer inquiry below — an email, a contact-form
+          message, anything. A server-side call to Claude reads it and
+          returns a classified, structured result. Nothing you paste is
+          stored.
+        </p>
+      </div>
+
+      <form id="intake-form" class="intake-form">
+        <label for="inquiry">Inquiry text</label>
+        <textarea
+          id="inquiry"
+          name="inquiry"
+          rows="8"
+          maxlength="4000"
+          placeholder="Hi, I run a 12-unit apartment building and our water heater just went out in two units. Can someone come out today? This is Priya, (555) 019-2244, priya@example.com."
+          required
+        ></textarea>
+        <div class="form-row">
+          <span id="char-count" class="char-count">0 / 4000</span>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Classify inquiry</button>
+        </div>
+        <p id="session-note" class="session-note"></p>
+      </form>
+
+      <div id="result-panel" class="result-panel" hidden aria-live="polite">
+        <div class="result-grid">
+          <div class="result-field">
+            <span class="result-label">Category</span>
+            <span id="result-category" class="badge"></span>
+          </div>
+          <div class="result-field">
+            <span class="result-label">Urgency</span>
+            <span id="result-urgency" class="badge"></span>
+          </div>
+        </div>
+        <div class="result-field result-summary">
+          <span class="result-label">Summary</span>
+          <p id="result-summary"></p>
+        </div>
+        <div class="result-field">
+          <span class="result-label">Extracted contact</span>
+          <dl id="result-contact" class="contact-list"></dl>
+        </div>
+      </div>
+
+      <p id="error-panel" class="error-panel" hidden role="alert"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>A live demo by <a href="https://portfolio.decisionclarity.io">Decision Clarity</a>. <a href="https://github.com/Decision-Clarity/portfolio/tree/main/lead-intake-demo">View the code</a>.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

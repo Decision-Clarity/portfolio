@@ -1,0 +1,330 @@
+/* ---------------------------------------------------------
+   Bramwell Cole Advisory — professional services template
+   Design concept: the letterhead. Quiet, editorial, credibility
+   through restraint. Left-aligned, generous margins, a single
+   brass accent used sparingly — never a bright CTA button.
+--------------------------------------------------------- */
+
+:root {
+  --ink: #1a2332;
+  --ink-soft: #384357;
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --muted: #5c6270;
+  --muted-2: #8b8f9c;
+  --line: #ddd8c9;
+  --accent: #a9812f;
+  --accent-strong: #8a6a25;
+
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --max-width: 46rem;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: var(--gutter);
+  top: 1rem;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding-block: 2rem;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.9375rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+.hero-kicker {
+  color: var(--accent-strong);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.hero h1 {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 2.4vw + 1.3rem, 2.75rem);
+  max-width: 18ch;
+}
+
+.hero-lede {
+  margin-top: 1.25rem;
+  max-width: 56ch;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.15rem;
+}
+
+.cta-link:hover {
+  color: var(--accent-strong);
+}
+
+.cta-link span {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* ---------- Section shared ---------- */
+
+.practice,
+.team,
+.quote-section,
+.contact {
+  padding-block: clamp(2.5rem, 6vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.section-intro h2 {
+  font-size: 1.5rem;
+}
+
+.section-intro p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  max-width: 48ch;
+}
+
+/* ---------- Practice areas ---------- */
+
+.practice-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.practice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.practice-list li {
+  padding-block: 1.35rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 1rem;
+}
+
+.practice-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.practice-list h3 {
+  font-size: 1.1875rem;
+  font-weight: 500;
+}
+
+.practice-list p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* ---------- Pull quote ---------- */
+
+.pull-quote {
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent);
+}
+
+.pull-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.pull-quote footer {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* ---------- Team ---------- */
+
+.team-list {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.team-list h3 {
+  font-size: 1.25rem;
+}
+
+.team-role {
+  margin-top: 0.25rem;
+  color: var(--accent-strong);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.team-list > li > p:last-child {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* ---------- Contact ---------- */
+
+.contact-inner h2 {
+  font-size: 1.625rem;
+  max-width: 22ch;
+}
+
+.contact-inner p {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  max-width: 50ch;
+}
+
+.cta-link-large {
+  font-size: 1.25rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: 2rem;
+  font-size: 0.875rem;
+  color: var(--muted-2);
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.site-footer a {
+  color: var(--muted-2);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 34rem) {
+  .practice-list li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
