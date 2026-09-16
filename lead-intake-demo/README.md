@@ -86,6 +86,7 @@ persistence, no admin dashboard, no retry queue. What follows is what
 | Empty or missing text | `400 VALIDATION_ERROR` |
 | Text over 4,000 chars | `400 VALIDATION_ERROR` |
 | Rate limit exceeded (per-IP) | `429 RATE_LIMITED`, with `Retry-After` |
+| Upstash Redis itself unreachable | Fails **open** — request proceeds without the per-IP limit, logged server-side. The token/length caps still bound cost; a transient Redis outage shouldn't take the demo down. |
 | Anthropic API itself rate-limits us | `429 UPSTREAM_RATE_LIMITED` |
 | Anthropic API error (5xx, etc.) | `502 UPSTREAM_ERROR` |
 | Model refuses / output fails schema validation | `422 PARSE_ERROR` |

@@ -73,16 +73,25 @@ export default async function handler(req, res) {
   }
 
   const ip = getClientIp(req);
-  const { success, limit, remaining, reset } = await ratelimit.limit(ip);
-  if (!success) {
-    const retryAfterSeconds = Math.max(0, Math.ceil((reset - Date.now()) / 1000));
-    res.setHeader("Retry-After", String(retryAfterSeconds));
-    return res.status(429).json({
-      error: "RATE_LIMITED",
-      message: "This demo is rate-limited to keep it free for everyone — try again in a bit.",
-      limit,
-      remaining,
-    });
+  try {
+    const { success, limit, remaining, reset } = await ratelimit.limit(ip);
+    if (!success) {
+      const retryAfterSeconds = Math.max(0, Math.ceil((reset - Date.now()) / 1000));
+      res.setHeader("Retry-After", String(retryAfterSeconds));
+      return res.status(429).json({
+        error: "RATE_LIMITED",
+        message: "This demo is rate-limited to keep it free for everyone — try again in a bit.",
+        limit,
+        remaining,
+      });
+    }
+  } catch (error) {
+    // Fail open, not closed: if Redis itself is unreachable, a transient
+    // outage shouldn't take the whole demo down. The hard input/output
+    // token caps below still bound worst-case cost per request even with
+    // the rate limiter skipped — this is defense in depth, not the only
+    // guard.
+    console.error("classify: rate limiter unavailable, proceeding without it", error);
   }
 
   if (!process.env.ANTHROPIC_API_KEY) {
