@@ -36,17 +36,22 @@
 
       <form id="intake-form" class="intake-form">
         <label for="inquiry">Inquiry text</label>
-        <textarea
-          id="inquiry"
-          name="inquiry"
-          rows="8"
-          maxlength="4000"
-          placeholder="Hi, I run a 12-unit apartment building and our water heater just went out in two units. Can someone come out today? This is Priya, (555) 019-2244, priya@example.com."
-          required
-        ></textarea>
-        <div class="form-row">
-          <span id="char-count" class="char-count">0 / 4000</span>
-          <button type="submit" id="submit-btn" class="btn btn-primary">Classify inquiry</button>
+        <div class="composer">
+          <textarea
+            id="inquiry"
+            name="inquiry"
+            rows="6"
+            maxlength="4000"
+            placeholder="Hi, I run a 12-unit apartment building and our water heater just went out in two units. Can someone come out today? This is Priya, (555) 019-2244, priya@example.com."
+            required
+          ></textarea>
+          <div class="composer-footer">
+            <span id="char-count" class="char-count">0 / 4000</span>
+            <button type="submit" id="submit-btn" class="send-btn">
+              <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15.5 L10 4.5 M10 4.5 L5 9.5 M10 4.5 L15 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="sr-only">Classify inquiry</span>
+            </button>
+          </div>
         </div>
         <p id="session-note" class="session-note"></p>
       </form>

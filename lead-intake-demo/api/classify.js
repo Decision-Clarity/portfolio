@@ -17,7 +17,7 @@ const ratelimit = new Ratelimit({
     url: process.env.UPSTASH_REDIS_REST_KV_REST_API_URL,
     token: process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN,
   }),
-  limiter: Ratelimit.slidingWindow(20, "1 h"),
+  limiter: Ratelimit.slidingWindow(40, "1 h"),
   prefix: "lead-intake",
 });
 

@@ -93,6 +93,11 @@ function renderResult(result) {
   }
 
   resultPanel.hidden = false;
+  resultPanel.classList.remove("is-visible");
+  // Force a reflow so the transition re-triggers even if the panel was
+  // already unhidden a moment ago (e.g. two submissions in a row).
+  void resultPanel.offsetWidth;
+  resultPanel.classList.add("is-visible");
 }
 
 form.addEventListener("submit", async (event) => {
@@ -108,9 +113,11 @@ form.addEventListener("submit", async (event) => {
   }
 
   submitBtn.disabled = true;
-  submitBtn.textContent = "Classifying…";
+  submitBtn.classList.add("is-loading");
+  submitBtn.setAttribute("aria-label", "Classifying…");
   clearError();
   resultPanel.hidden = true;
+  resultPanel.classList.remove("is-visible");
 
   try {
     const response = await fetch("/api/classify", {
@@ -131,7 +138,8 @@ form.addEventListener("submit", async (event) => {
   } catch {
     showError("Couldn't reach the classifier — check your connection and try again.");
   } finally {
-    submitBtn.textContent = "Classify inquiry";
+    submitBtn.classList.remove("is-loading");
+    submitBtn.removeAttribute("aria-label");
     renderSessionState();
   }
 });

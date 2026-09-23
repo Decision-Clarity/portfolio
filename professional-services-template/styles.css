@@ -166,10 +166,13 @@ a:focus-visible {
   text-decoration: none;
   border-bottom: 1px solid var(--accent);
   padding-bottom: 0.15rem;
+  transition: border-bottom-width 0.15s ease, padding-bottom 0.15s ease, color 0.15s ease;
 }
 
 .cta-link:hover {
   color: var(--accent-strong);
+  border-bottom-width: 2px;
+  padding-bottom: 0.1rem;
 }
 
 .cta-link span {
@@ -266,6 +269,28 @@ a:focus-visible {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.avatar-mark {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+}
+
+.avatar-ring {
+  color: var(--accent);
+}
+
+.avatar-fill {
+  fill: var(--bg);
+}
+
+.avatar-letter {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  fill: var(--ink);
 }
 
 .team-list h3 {

@@ -14,6 +14,7 @@
   --muted: #5b6b63;
   --muted-2: #8a9990;
   --line: #d6d2c4;
+  --bg-alt: #e5e1d1;
   --accent: #e8590c;
   --accent-strong: #b8430a;
   --on-accent: #241005;
@@ -277,12 +278,26 @@ button:focus-visible {
   padding: 1.1rem 1.35rem;
   border-bottom: 1px solid var(--line);
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: flex-start;
+  gap: 0.9rem;
 }
 
 .hero-panel li:last-child {
   border-bottom: none;
+}
+
+.feature-icon {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin-top: 0.15rem;
+  color: var(--accent);
+}
+
+.feature-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .hero-panel strong {
@@ -291,7 +306,7 @@ button:focus-visible {
   font-size: 1.0625rem;
 }
 
-.hero-panel span {
+.hero-panel span span {
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -303,6 +318,10 @@ button:focus-visible {
 .reviews {
   padding-block: clamp(2.5rem, 6vw, 4rem);
   border-top: 1px solid var(--line);
+}
+
+.reviews {
+  background: var(--bg-alt);
 }
 
 .section-head {
