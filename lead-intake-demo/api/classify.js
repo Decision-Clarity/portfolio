@@ -13,7 +13,10 @@ const MAX_OUTPUT_TOKENS = 500;
 // holds across cold starts and across the multiple lambda instances Vercel
 // may run concurrently.
 const ratelimit = new Ratelimit({
-  redis: Redis.fromEnv(),
+  redis: new Redis({
+    url: process.env.UPSTASH_REDIS_REST_KV_REST_API_URL,
+    token: process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN,
+  }),
   limiter: Ratelimit.slidingWindow(20, "1 h"),
   prefix: "lead-intake",
 });
