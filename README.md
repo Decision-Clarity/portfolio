@@ -29,7 +29,7 @@ work. Website templates follow as a secondary offering.
 | Demo | Description | Live | Code |
 |---|---|---|---|
 | AI lead intake | Classifies and summarizes a pasted inquiry via a server-side LLM call | [live](https://lead-intake-demo.vercel.app/) | [code](lead-intake-demo/) |
-| Document & receipt parser | Extracts structured fields from pasted or uploaded text | _coming soon_ | _coming soon_ |
+| Receipt & invoice extractor | Extracts structured fields from pasted receipt, invoice, or order-confirmation text | [live](https://receipt-extractor-demo.vercel.app/) | [code](receipt-extractor-demo/) |
 | Knowledge-base Q&A | Answers questions grounded in a small fixed set of documents | _coming soon_ | _coming soon_ |
 
 ### Website templates
@@ -54,6 +54,7 @@ portfolio/
 ├── README.md
 ├── .gitignore
 ├── lead-intake-demo/                   # AI automation demo (live)
+├── receipt-extractor-demo/             # AI automation demo (live)
 ├── local-service-template/             # Website template (live)
 ├── professional-services-template/     # Website template (live)
 └── (more top-level directories as future demos ship)

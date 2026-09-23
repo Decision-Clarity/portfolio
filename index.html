@@ -42,19 +42,32 @@
           </div>
         </div>
         <svg
-          class="signal-graphic"
+          class="pipeline-diagram"
           viewBox="0 0 440 140"
           role="img"
-          aria-label="A noisy, jagged line resolving into one smooth, clear line"
+          aria-label="Pipeline diagram: a message or document goes in, AI processes it, a structured result comes out"
         >
-          <path
-            class="noise"
-            d="M0,70 L18,30 L36,100 L54,20 L72,90 L90,15 L108,95 L126,25 L144,85 L162,35 L180,75 L198,45 L216,65 L234,50 L252,60"
-          />
-          <path
-            class="signal-line"
-            d="M0,70 C60,40 100,95 160,60 C220,28 260,82 320,55 C360,38 400,66 440,50"
-          />
+          <line class="pipeline-arrow" x1="150" y1="68" x2="180" y2="68" marker-end="url(#pipeline-arrowhead)" />
+          <line class="pipeline-arrow" x1="260" y1="68" x2="290" y2="68" marker-end="url(#pipeline-arrowhead)" />
+
+          <circle class="pipeline-flow-dot" r="4" cx="0" cy="0" />
+
+          <rect class="pipeline-box" x="6" y="40" width="144" height="56" rx="10" />
+          <text class="pipeline-label" x="78" y="64">Message or</text>
+          <text class="pipeline-label" x="78" y="81">document</text>
+
+          <rect class="pipeline-box pipeline-box-accent" x="182" y="40" width="78" height="56" rx="10" />
+          <text class="pipeline-label pipeline-label-accent" x="221" y="73">AI</text>
+
+          <rect class="pipeline-box" x="294" y="40" width="140" height="56" rx="10" />
+          <text class="pipeline-label" x="364" y="64">Structured</text>
+          <text class="pipeline-label" x="364" y="81">result</text>
+
+          <defs>
+            <marker id="pipeline-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path class="pipeline-arrowhead" d="M0,0 L8,4 L0,8 Z" />
+            </marker>
+          </defs>
         </svg>
       </div>
     </section>
@@ -91,13 +104,21 @@
           </li>
           <li>
             <article class="card">
-              <div class="card-thumb card-thumb-placeholder" aria-hidden="true">
-                <svg viewBox="0 0 48 48"><path d="M8 16 L18 30 L40 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 5" /></svg>
-              </div>
+              <a class="card-thumb" href="https://receipt-extractor-demo.vercel.app/">
+                <img src="assets/thumbnails/receipt-extractor-demo.jpg" alt="Screenshot of the Receipt &amp; invoice extractor demo" width="1200" height="750" loading="lazy" />
+              </a>
               <div class="card-body">
-                <h3>Document &amp; receipt parser</h3>
-                <p>Paste or upload a document and get clean, structured fields back — no manual entry.</p>
-                <span class="card-status">In progress</span>
+                <h3>Receipt &amp; invoice extractor</h3>
+                <ul class="tech-pills">
+                  <li>Claude API</li>
+                  <li>Vercel Functions</li>
+                  <li>Redis</li>
+                </ul>
+                <p>Paste a receipt, invoice, or order confirmation and get clean, structured fields back.</p>
+                <div class="card-links">
+                  <a href="https://receipt-extractor-demo.vercel.app/">Try it</a>
+                  <a href="https://github.com/Decision-Clarity/portfolio/tree/main/receipt-extractor-demo">Code</a>
+                </div>
               </div>
             </article>
           </li>

@@ -200,56 +200,70 @@ button:focus-visible {
   color: #23150a;
 }
 
-.signal-graphic {
+.pipeline-diagram {
   width: 100%;
   height: auto;
 }
 
-.signal-graphic .noise {
-  fill: none;
+.pipeline-box {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.pipeline-box-accent {
+  fill: var(--signal);
+  stroke: var(--signal-strong);
+}
+
+.pipeline-label {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+
+.pipeline-label-accent {
+  fill: #ffffff;
+  font-size: 0.9375rem;
+}
+
+.pipeline-arrow {
   stroke: var(--muted-2);
-  stroke-width: 2;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  animation: fade-out 2s ease-in-out 0.3s forwards;
+  stroke-width: 1.5;
 }
 
-.signal-graphic .signal-line {
-  fill: none;
-  stroke: var(--signal);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-dasharray: 620;
-  stroke-dashoffset: 620;
-  animation: draw-in 1.6s ease-out 0.5s forwards;
+.pipeline-arrowhead {
+  fill: var(--muted-2);
 }
 
-@keyframes fade-out {
+.pipeline-flow-dot {
+  fill: var(--signal);
+  offset-path: path("M10,68 L430,68");
+  animation: pipeline-flow 3.5s linear infinite;
+}
+
+@keyframes pipeline-flow {
   0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  8% {
     opacity: 1;
   }
-  55% {
+  92% {
     opacity: 1;
   }
   100% {
+    offset-distance: 100%;
     opacity: 0;
   }
 }
 
-@keyframes draw-in {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .signal-graphic .noise {
+  .pipeline-flow-dot {
     display: none;
-    animation: none;
-  }
-  .signal-graphic .signal-line {
-    stroke-dashoffset: 0;
-    animation: none;
   }
 }
 
@@ -460,7 +474,7 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .signal-graphic {
+  .pipeline-diagram {
     order: 2;
     max-width: 26rem;
   }

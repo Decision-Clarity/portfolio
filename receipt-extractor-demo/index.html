@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receipt &amp; invoice extractor — Decision Clarity</title>
+  <meta name="description" content="Paste the text of a receipt, invoice, or order confirmation and see it turned into clean structured fields by a live server-side AI call." />
+  <meta name="theme-color" content="#f2f4f3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f4f3'/%3E%3Cpath d='M4 20 C10 8, 18 28, 28 12' fill='none' stroke='%232b6e5b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="https://portfolio.decisionclarity.io">Decision Clarity</a>
+      <a class="back-link" href="https://portfolio.decisionclarity.io/#automations">&larr; All demos</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap page">
+      <div class="page-head">
+        <h1>Receipt &amp; invoice extractor</h1>
+        <p>
+          Paste the text of a receipt, invoice, or order confirmation, the
+          kind that arrives in an email body. A server-side call to Claude
+          reads it and returns clean, structured fields: no manual entry.
+          Nothing you paste is stored.
+        </p>
+      </div>
+
+      <p class="capability-note">
+        This demo takes pasted text to keep it fast and free to try. The
+        same extraction runs on uploaded PDFs and scanned documents in a
+        production build.
+      </p>
+
+      <form id="parse-form" class="intake-form">
+        <label for="receipt-text">Receipt or invoice text</label>
+        <div class="composer">
+          <textarea
+            id="receipt-text"
+            name="receiptText"
+            rows="6"
+            maxlength="4000"
+            placeholder="Riverside Hardware&#10;Invoice #4471&#10;Date: 03/14/2026&#10;&#10;2x Interior latex paint, 1gal — $84.00&#10;1x Roller kit — $18.50&#10;&#10;Total: $102.50"
+            required
+          ></textarea>
+          <div class="composer-footer">
+            <span id="char-count" class="char-count">0 / 4000</span>
+            <button type="submit" id="submit-btn" class="send-btn">
+              <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15.5 L10 4.5 M10 4.5 L5 9.5 M10 4.5 L15 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="sr-only">Extract fields</span>
+            </button>
+          </div>
+        </div>
+        <p id="session-note" class="session-note"></p>
+      </form>
+
+      <div id="result-panel" class="result-panel" hidden aria-live="polite">
+        <div class="result-grid">
+          <div class="result-field">
+            <span class="result-label">Vendor</span>
+            <span id="result-vendor" class="result-value"></span>
+          </div>
+          <div class="result-field">
+            <span class="result-label">Date</span>
+            <span id="result-date" class="result-value"></span>
+          </div>
+          <div class="result-field">
+            <span class="result-label">Total</span>
+            <span id="result-total" class="result-value"></span>
+          </div>
+          <div class="result-field">
+            <span class="result-label">Invoice #</span>
+            <span id="result-invoice-number" class="result-value"></span>
+          </div>
+        </div>
+        <div class="result-field result-line-items">
+          <span class="result-label">Line items</span>
+          <ul id="result-line-items" class="line-items-list"></ul>
+        </div>
+      </div>
+
+      <p id="error-panel" class="error-panel" hidden role="alert"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>A live demo by <a href="https://portfolio.decisionclarity.io">Decision Clarity</a>. <a href="https://github.com/Decision-Clarity/portfolio/tree/main/receipt-extractor-demo">View the code</a>.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
