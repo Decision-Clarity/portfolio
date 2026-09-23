@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knowledge-base Q&amp;A — Decision Clarity</title>
+  <meta name="description" content="Ask a question and get an answer grounded in a fixed set of documents, with the source shown, from a live server-side AI call." />
+  <meta name="theme-color" content="#f2f4f3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f4f3'/%3E%3Cpath d='M4 20 C10 8, 18 28, 28 12' fill='none' stroke='%232b6e5b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="https://portfolio.decisionclarity.io">Decision Clarity</a>
+      <a class="back-link" href="https://portfolio.decisionclarity.io/#automations">&larr; All demos</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap page">
+      <div class="page-head">
+        <h1>Knowledge-base Q&amp;A</h1>
+        <p>
+          Ask a question and a server-side call to Claude answers it using
+          only a fixed set of documents, then shows exactly which document
+          and section the answer came from. Ask something the documents
+          don't cover and it says so instead of guessing.
+        </p>
+      </div>
+
+      <p class="corpus-note">
+        This demo answers from four fictional documents about a made-up
+        scheduling product, Northbound Scheduler: an FAQ, a Refund &amp;
+        Cancellation Policy, a Getting Started Guide, and a Product
+        Overview &amp; Features page.
+      </p>
+
+      <p class="capability-note">
+        This demo uses keyword retrieval over a small fixed set of
+        documents to keep it fast and free to try. A production build uses
+        vector embeddings and semantic search over your full document set.
+      </p>
+
+      <form id="ask-form" class="intake-form">
+        <label for="question-text">Your question</label>
+        <div class="composer">
+          <textarea
+            id="question-text"
+            name="questionText"
+            rows="3"
+            maxlength="300"
+            placeholder="What's the refund window on an annual plan?"
+            required
+          ></textarea>
+          <div class="composer-footer">
+            <span id="char-count" class="char-count">0 / 300</span>
+            <button type="submit" id="submit-btn" class="send-btn">
+              <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15.5 L10 4.5 M10 4.5 L5 9.5 M10 4.5 L15 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="sr-only">Ask</span>
+            </button>
+          </div>
+        </div>
+        <p id="session-note" class="session-note"></p>
+      </form>
+
+      <div id="result-panel" class="result-panel" hidden aria-live="polite">
+        <p id="result-answer" class="answer-text"></p>
+        <p id="result-source" class="answer-source"></p>
+      </div>
+
+      <p id="error-panel" class="error-panel" hidden role="alert"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>A live demo by <a href="https://portfolio.decisionclarity.io">Decision Clarity</a>. <a href="https://github.com/Decision-Clarity/portfolio/tree/main/knowledge-base-qa-demo">View the code</a>.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
