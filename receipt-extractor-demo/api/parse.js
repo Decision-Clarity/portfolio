@@ -15,8 +15,8 @@ const MAX_OUTPUT_TOKENS = 500;
 // don't share a quota even if they end up on the same Redis database.
 const ratelimit = new Ratelimit({
   redis: new Redis({
-    url: process.env.UPSTASH_REDIS_REST_KV_REST_API_URL,
-    token: process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN,
+    url: process.env.KV_REST_API_URL,
+    token: process.env.KV_REST_API_TOKEN,
   }),
   limiter: Ratelimit.slidingWindow(40, "1 h"),
   prefix: "document-parser",

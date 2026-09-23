@@ -137,6 +137,6 @@ npm install
 vercel dev
 ```
 
-Requires `ANTHROPIC_API_KEY`, `UPSTASH_REDIS_REST_KV_REST_API_URL`, and
-`UPSTASH_REDIS_REST_KV_REST_API_TOKEN` in a local `.env` (see `.env.example`) —
-none of these are committed to the repo.
+Requires `ANTHROPIC_API_KEY`, `KV_REST_API_URL`, and `KV_REST_API_TOKEN` in
+a local `.env` (see `.env.example`) — none of these are committed to the
+repo.
