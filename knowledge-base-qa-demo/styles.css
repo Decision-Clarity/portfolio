@@ -154,6 +154,49 @@ a {
   max-width: 52ch;
 }
 
+/* ---------- Example questions ---------- */
+
+.example-questions {
+  margin-top: 1.25rem;
+}
+
+.example-questions-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 0.625rem;
+}
+
+.example-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.example-chip {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--signal-strong);
+  background: var(--signal-bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem 0.875rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.example-chip:hover {
+  border-color: var(--signal);
+  transform: translateY(-1px);
+}
+
+.example-chip:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
 /* ---------- Form ---------- */
 
 .intake-form {

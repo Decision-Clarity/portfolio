@@ -8,6 +8,7 @@ const submitBtn = document.getElementById("submit-btn");
 const sessionNote = document.getElementById("session-note");
 const resultPanel = document.getElementById("result-panel");
 const errorPanel = document.getElementById("error-panel");
+const exampleChips = document.querySelectorAll(".example-chip");
 
 function getRemainingUses() {
   try {
@@ -40,6 +41,14 @@ function renderSessionState() {
 
 textarea.addEventListener("input", () => {
   charCount.textContent = `${textarea.value.length} / 300`;
+});
+
+exampleChips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    textarea.value = chip.dataset.question;
+    charCount.textContent = `${textarea.value.length} / 300`;
+    textarea.focus();
+  });
 });
 
 function showError(message) {
